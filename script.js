@@ -1,155 +1,183 @@
-/* =========================================================
-   KNOT RELEASE REVEAL
-   ========================================================= */
+const knot = document.getElementById("knot");
+const threadTail = document.getElementById("threadTail");
+const opening = document.getElementById("opening");
 
-.reveal-message {
+let dragging = false;
+let startX = 0;
+let distance = 0;
 
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 20;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    background: var(--purple);
-
-    color: var(--beige);
-
-    opacity: 0;
-
-    animation:
-        revealMessage
-        2s
-        cubic-bezier(.22,1,.36,1)
-        forwards;
-
-    padding: 30px;
-}
+const pullDistance = 120;
 
 
-.reveal-symbol {
+/* ================================
+   START DRAG
+================================ */
 
-    font-size: 24px;
+knot.addEventListener("pointerdown", function (event) {
 
-    color: var(--lavender);
+    dragging = true;
 
-    margin-bottom: 25px;
+    startX = event.clientX;
 
-    animation:
-        revealSymbol
-        1.5s
-        ease
-        forwards;
-}
+    knot.setPointerCapture(event.pointerId);
 
-
-.reveal-message p {
-
-    font-family: Arial, sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 4px;
-
-    color: var(--lavender);
-
-    margin-bottom: 30px;
-}
+    knot.style.cursor = "grabbing";
+});
 
 
-.reveal-message h1 {
+/* ================================
+   DRAG
+================================ */
 
-    font-size:
-        clamp(
-            48px,
-            13vw,
-            90px
-        );
+knot.addEventListener("pointermove", function (event) {
 
-    font-weight: normal;
-
-    line-height: 0.95;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 35px;
-}
-
-
-.reveal-message h1 span {
-
-    display: block;
-
-    font-size: 25px;
-
-    color: var(--lavender);
-
-    margin: 10px 0;
-}
-
-
-.reveal-date {
-
-    font-family: Arial, sans-serif;
-
-    font-size: 9px;
-
-    letter-spacing: 4px;
-
-    color: var(--lavender);
-}
-
-
-/* =========================================================
-   REVEAL ANIMATIONS
-   ========================================================= */
-
-@keyframes revealMessage {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            scale(1.08);
+    if (!dragging) {
+        return;
     }
 
-    to {
+    distance = event.clientX - startX;
 
-        opacity: 1;
-
-        transform:
-            scale(1);
+    if (distance < 0) {
+        distance = 0;
     }
+
+    if (distance > pullDistance) {
+        distance = pullDistance;
+    }
+
+
+    knot.style.transform =
+        `translateX(${distance}px) scale(1.05)`;
+
+
+    threadTail.style.transform =
+        `translateX(${distance}px) rotate(35deg)`;
+
+});
+
+
+/* ================================
+   RELEASE
+================================ */
+
+knot.addEventListener("pointerup", function () {
+
+    dragging = false;
+
+    knot.style.cursor = "grab";
+
+
+    if (distance >= pullDistance * 0.7) {
+
+        openInvitation();
+
+    } else {
+
+        resetKnot();
+
+    }
+
+});
+
+
+/* ================================
+   RESET
+================================ */
+
+function resetKnot() {
+
+    knot.style.transition =
+        "transform 0.5s ease";
+
+    knot.style.transform =
+        "translateX(0) scale(1)";
+
+
+    threadTail.style.transition =
+        "transform 0.5s ease";
+
+    threadTail.style.transform =
+        "rotate(35deg)";
+
+    distance = 0;
 }
 
 
-@keyframes revealSymbol {
+/* ================================
+   OPEN INVITATION
+================================ */
 
-    from {
+function openInvitation() {
 
-        opacity: 0;
+    knot.style.pointerEvents = "none";
 
-        transform:
-            translateY(15px)
-            rotate(-20deg);
-    }
 
-    to {
+    knot.style.transition =
+        "transform 0.8s ease, opacity 0.8s ease";
 
-        opacity: 1;
+    knot.style.transform =
+        "translateX(200px) rotate(30deg) scale(0.7)";
 
-        transform:
-            translateY(0)
-            rotate(0);
-    }
+    knot.style.opacity = "0";
+
+
+    threadTail.style.transition =
+        "transform 1s ease, opacity 1s ease";
+
+    threadTail.style.transform =
+        "translateX(230px) rotate(35deg)";
+
+    threadTail.style.opacity = "0";
+
+
+    setTimeout(function () {
+
+        showReveal();
+
+    }, 900);
+
+}
+
+
+/* ================================
+   REVEAL
+================================ */
+
+function showReveal() {
+
+    const reveal = document.createElement("div");
+
+    reveal.className = "reveal-message";
+
+    reveal.innerHTML = `
+        <div class="reveal-symbol">✦</div>
+
+        <p>WITH LOVE</p>
+
+        <h1>
+            SUPRAJA
+            <span>&</span>
+            LOGESH
+        </h1>
+
+        <div class="reveal-date">
+            15 NOVEMBER 2026
+        </div>
+    `;
+
+    opening.appendChild(reveal);
+
+
+    setTimeout(function () {
+
+        reveal.style.opacity = "0";
+
+        setTimeout(function () {
+
+            reveal.remove();
+
+        }, 1200);
+
+    }, 3000);
+
 }
