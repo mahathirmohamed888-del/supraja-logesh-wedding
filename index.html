@@ -1,98 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Supraja & Logesh</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- ==========================================
-         OPENING — THE KNOT
-         ========================================== -->
 
-    <main class="opening" id="opening">
+<!-- =====================================================
+     OPENING — UNTIE THE KNOT
+     ===================================================== -->
 
-        <div class="invitation">
-
-            <div class="ornament">✦</div>
-
-            <p class="invitation-label">
-                A WEDDING INVITATION
-            </p>
-
-            <div class="names">
-
-                <span>SUPRAJA</span>
-
-                <small>&</small>
-
-                <span>LOGESH</span>
-
-            </div>
-
-            <div class="date">
-                15 NOVEMBER 2026
-            </div>
+<main
+    class="opening"
+    id="opening"
+>
 
 
-            <!-- ==================================
-                 WRAPPING THREAD
-                 ================================== -->
-
-            <div class="thread-area">
-
-                <div class="thread horizontal"></div>
-
-                <div class="thread vertical"></div>
+    <div class="invitation">
 
 
-                <!-- The knot -->
-
-                <button
-                    class="knot"
-                    id="knot"
-                    aria-label="Untie the invitation"
-                    type="button"
-                >
-
-                    <span class="knot-loop"></span>
-
-                    <span class="knot-loop second"></span>
-
-                    <span class="knot-center"></span>
-
-                </button>
+        <div class="ornament">
+            ✦
+        </div>
 
 
-                <!-- Loose thread -->
-
-                <div
-                    class="thread-tail"
-                    id="threadTail"
-                ></div>
-
-            </div>
+        <p class="invitation-label">
+            A WEDDING INVITATION
+        </p>
 
 
-            <p class="instruction">
-                PULL THE THREAD TO UNVEIL
-            </p>
+        <div class="names">
 
-            <p class="hint">
-                Drag the knot
-            </p>
+            <span>SUPRAJA</span>
+
+            <small>&</small>
+
+            <span>LOGESH</span>
 
         </div>
 
-    </main>
+
+        <div class="date">
+            15 NOVEMBER 2026
+        </div>
 
 
-    <script src="script.js?v=2"></script>
+        <!-- THREAD -->
+
+        <div class="thread-area">
+
+
+            <div class="thread horizontal"></div>
+
+
+            <div class="thread vertical"></div>
+
+
+            <!-- KNOT -->
+
+            <button
+                class="knot"
+                id="knot"
+                type="button"
+                aria-label="Untie the wedding invitation"
+            >
+
+                <span class="knot-loop"></span>
+
+                <span class="knot-loop second"></span>
+
+                <span class="knot-center"></span>
+
+            </button>
+
+
+            <!-- LOOSE THREAD -->
+
+            <div
+                class="thread-tail"
+                id="threadTail"
+            ></div>
+
+
+        </div>
+
+
+        <p class="instruction">
+            PULL THE THREAD TO UNVEIL
+        </p>
+
+
+        <p class="hint">
+            Drag the knot →
+        </p>
+
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     WEDDING CONTENT
+     ===================================================== -->
+
+<section
+    class="wedding-content"
+    id="weddingContent"
+>
+
+
+    <!-- INTRODUCTION -->
+
+    <section class="intro-section">
+
+
+        <div class="content-symbol">
+            ✦
+        </div>
+
+
+        <p class="content-label">
+            WITH JOY IN OUR HEARTS
+        </p>
+
+
+        <h1>
+
+            SUPRAJA
+
+            <span>&</span>
+
+            LOGESH
+
+        </h1>
+
+
+        <p class="intro-text">
+
+            Together with their families,
+            they invite you to celebrate
+            their wedding.
+
+        </p>
+
+
+        <div class="main-date">
+
+            <strong>
+                15
+            </strong>
+
+            <div>
+
+                <span>
+                    NOVEMBER
+                </span>
+
+                <small>
+                    2026
+                </small>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         COUNTDOWN
+         ================================================= -->
+
+    <section class="countdown-section">
+
+
+        <p class="content-label">
+            THE COUNTDOWN
+        </p>
+
+
+        <h2>
+            Until the wedding day
+        </h2>
+
+
+        <div class="countdown">
+
+
+            <div class="count-box">
+
+                <strong id="days">
+                    00
+                </strong>
+
+                <span>
+                    DAYS
+                </span>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <strong id="hours">
+                    00
+                </strong>
+
+                <span>
+                    HOURS
+                </span>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <strong id="minutes">
+                    00
+                </strong>
+
+                <span>
+                    MINUTES
+                </span>
+
+            </div>
+
+
+            <div class="count-box">
+
+                <strong id="seconds">
+                    00
+                </strong>
+
+                <span>
+                    SECONDS
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         RECEPTION
+         ================================================= -->
+
+    <section class="event reception">
+
+
+        <span class="event-number">
+            01
+        </span>
+
+
+        <p class="content-label">
+            THE EVENING BEFORE
+        </p>
+
+
+        <h2>
+            Reception
+        </h2>
+
+
+        <div class="event-date">
+            14 NOVEMBER 2026
+        </div>
+
+
+        <div class="event-time">
+            6:30 PM — 8:30 PM
+        </div>
+
+
+        <div class="event-line"></div>
+
+
+        <p class="venue">
+            SRI PADAM RAM GANESH MAHAL
+        </p>
+
+
+        <p class="location">
+            CHROMPET, CHENNAI
+        </p>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         WEDDING
+         ================================================= -->
+
+    <section class="event wedding">
+
+
+        <span class="event-number">
+            02
+        </span>
+
+
+        <p class="content-label">
+            THE WEDDING DAY
+        </p>
+
+
+        <h2>
+            Wedding
+        </h2>
+
+
+        <div class="event-date">
+            15 NOVEMBER 2026
+        </div>
+
+
+        <div class="event-time">
+            7:00 AM — 8:30 AM
+        </div>
+
+
+        <div class="event-line"></div>
+
+
+        <p class="venue">
+            SRI PADAM RAM GANESH MAHAL
+        </p>
+
+
+        <p class="location">
+            CHROMPET, CHENNAI
+        </p>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         CLOSING
+         ================================================= -->
+
+    <section class="closing">
+
+
+        <div class="content-symbol">
+            ✦
+        </div>
+
+
+        <p class="content-label">
+            WITH LOVE
+        </p>
+
+
+        <h2>
+
+            SUPRAJA
+
+            <span>&</span>
+
+            LOGESH
+
+        </h2>
+
+
+        <div class="closing-date">
+            15 · 11 · 2026
+        </div>
+
+
+    </section>
+
+
+</section>
+
+
+
+<script src="script.js?v=3"></script>
+
 
 </body>
+
 </html>
