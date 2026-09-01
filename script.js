@@ -1,147 +1,155 @@
-/* =====================================================
-   SUPRAJA & LOGESH
-   WEDDING INVITATION JAVASCRIPT
-   ===================================================== */
+/* =========================================================
+   KNOT RELEASE REVEAL
+   ========================================================= */
 
+.reveal-message {
 
-/* =====================================================
-   OPEN INVITATION
-   ===================================================== */
+    position: absolute;
 
-const opening = document.getElementById("opening");
-const openButton = document.getElementById("openButton");
-const mainContent = document.getElementById("mainContent");
+    inset: 0;
 
+    z-index: 20;
 
-openButton.addEventListener("click", function () {
+    display: flex;
 
-    // Start the opening animation
-    opening.classList.add("opened");
+    flex-direction: column;
 
+    justify-content: center;
 
-    // Reveal the main invitation after the animation
-    setTimeout(function () {
+    align-items: center;
 
-        mainContent.classList.add("visible");
+    text-align: center;
 
-        // Allow scrolling
-        document.body.style.overflowY = "auto";
+    background: var(--purple);
 
-    }, 900);
+    color: var(--beige);
 
-});
+    opacity: 0;
 
+    animation:
+        revealMessage
+        2s
+        cubic-bezier(.22,1,.36,1)
+        forwards;
 
-/* =====================================================
-   WEDDING COUNTDOWN
-   ===================================================== */
-
-
-/*
-   Wedding:
-   15 November 2026
-   7:00 AM
-   Chennai / India
-*/
-
-const weddingDate = new Date(
-    "2026-11-15T07:00:00+05:30"
-).getTime();
-
-
-/* Countdown elements */
-
-const daysElement =
-    document.getElementById("days");
-
-const hoursElement =
-    document.getElementById("hours");
-
-const minutesElement =
-    document.getElementById("minutes");
-
-const secondsElement =
-    document.getElementById("seconds");
-
-
-/* =====================================================
-   UPDATE COUNTDOWN
-   ===================================================== */
-
-function updateCountdown() {
-
-    const now = new Date().getTime();
-
-    const difference = weddingDate - now;
-
-
-    // Wedding date has arrived
-    if (difference <= 0) {
-
-        daysElement.textContent = "00";
-        hoursElement.textContent = "00";
-        minutesElement.textContent = "00";
-        secondsElement.textContent = "00";
-
-        return;
-    }
-
-
-    // Calculate days
-    const days = Math.floor(
-        difference /
-        (1000 * 60 * 60 * 24)
-    );
-
-
-    // Calculate hours
-    const hours = Math.floor(
-        (difference %
-            (1000 * 60 * 60 * 24))
-        /
-        (1000 * 60 * 60)
-    );
-
-
-    // Calculate minutes
-    const minutes = Math.floor(
-        (difference %
-            (1000 * 60 * 60))
-        /
-        (1000 * 60)
-    );
-
-
-    // Calculate seconds
-    const seconds = Math.floor(
-        (difference %
-            (1000 * 60))
-        /
-        1000
-    );
-
-
-    // Display countdown
-
-    daysElement.textContent =
-        String(days).padStart(2, "0");
-
-    hoursElement.textContent =
-        String(hours).padStart(2, "0");
-
-    minutesElement.textContent =
-        String(minutes).padStart(2, "0");
-
-    secondsElement.textContent =
-        String(seconds).padStart(2, "0");
+    padding: 30px;
 }
 
 
-/* Run immediately */
+.reveal-symbol {
 
-updateCountdown();
+    font-size: 24px;
+
+    color: var(--lavender);
+
+    margin-bottom: 25px;
+
+    animation:
+        revealSymbol
+        1.5s
+        ease
+        forwards;
+}
 
 
-/* Update every second */
+.reveal-message p {
 
-setInterval(updateCountdown, 1000);
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: var(--lavender);
+
+    margin-bottom: 30px;
+}
+
+
+.reveal-message h1 {
+
+    font-size:
+        clamp(
+            48px,
+            13vw,
+            90px
+        );
+
+    font-weight: normal;
+
+    line-height: 0.95;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 35px;
+}
+
+
+.reveal-message h1 span {
+
+    display: block;
+
+    font-size: 25px;
+
+    color: var(--lavender);
+
+    margin: 10px 0;
+}
+
+
+.reveal-date {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: var(--lavender);
+}
+
+
+/* =========================================================
+   REVEAL ANIMATIONS
+   ========================================================= */
+
+@keyframes revealMessage {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(1.08);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes revealSymbol {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            rotate(-20deg);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+}
