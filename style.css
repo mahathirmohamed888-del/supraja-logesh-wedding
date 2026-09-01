@@ -1,12 +1,13 @@
-/* =====================================================
+/* =========================================================
    SUPRAJA & LOGESH
-   INTERACTIVE WEDDING INVITATION
-   ===================================================== */
+   VERSION 8 — FINAL RESPONSIVE DESIGN
+   Mobile-first luxury wedding invitation
+   ========================================================= */
 
 
-/* =====================================================
+/* =========================================================
    COLOUR SYSTEM
-   ===================================================== */
+   ========================================================= */
 
 :root {
 
@@ -19,13 +20,15 @@
     --lavender: #C9B6D9;
     --light-lavender: #DED1E7;
 
+    --text-purple: #6F5A7C;
+
     --white: #FFFFFF;
 }
 
 
-/* =====================================================
-   RESET
-   ===================================================== */
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
 
 * {
     margin: 0;
@@ -41,6 +44,10 @@ html {
 
 body {
 
+    width: 100%;
+
+    min-height: 100%;
+
     background: var(--beige);
 
     color: var(--deep-purple);
@@ -51,16 +58,33 @@ body {
         serif;
 
     overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
 }
 
 
-/* =====================================================
+/* Prevent images/content from accidentally overflowing */
+
+img,
+svg,
+video {
+
+    max-width: 100%;
+
+    height: auto;
+}
+
+
+/* =========================================================
    OPENING SCREEN
-   ===================================================== */
+   ========================================================= */
 
 .opening {
 
+    width: 100%;
+
     min-height: 100vh;
+    min-height: 100svh;
 
     display: flex;
 
@@ -82,11 +106,13 @@ body {
             var(--deep-purple) 100%
         );
 
-    padding: 30px;
+    padding: 20px;
+
+    isolation: isolate;
 }
 
 
-/* subtle decorative circle */
+/* Decorative circles */
 
 .opening::before {
 
@@ -94,14 +120,17 @@ body {
 
     position: absolute;
 
-    width: 650px;
-    height: 650px;
+    width: min(150vw, 700px);
 
-    border: 1px solid rgba(201,182,217,0.18);
+    aspect-ratio: 1;
+
+    border: 1px solid rgba(201, 182, 217, 0.16);
 
     border-radius: 50%;
 
     pointer-events: none;
+
+    z-index: -1;
 }
 
 
@@ -111,32 +140,37 @@ body {
 
     position: absolute;
 
-    width: 480px;
-    height: 480px;
+    width: min(110vw, 520px);
 
-    border: 1px solid rgba(201,182,217,0.12);
+    aspect-ratio: 1;
+
+    border: 1px solid rgba(201, 182, 217, 0.12);
 
     border-radius: 50%;
 
     pointer-events: none;
+
+    z-index: -1;
 }
 
 
-/* =====================================================
+/* =========================================================
    INVITATION CARD
-   ===================================================== */
+   ========================================================= */
 
 .invitation-card {
 
-    width: min(420px, 88vw);
+    width: min(420px, 100%);
 
-    min-height: 600px;
+    min-height: min(600px, 82svh);
 
-    padding: 70px 35px;
+    padding:
+        60px
+        clamp(22px, 7vw, 40px);
 
     background: var(--beige);
 
-    border: 1px solid rgba(255,255,255,0.35);
+    border: 1px solid rgba(255, 255, 255, 0.35);
 
     position: relative;
 
@@ -153,15 +187,15 @@ body {
     text-align: center;
 
     box-shadow:
-        0 35px 80px rgba(0,0,0,0.25);
+        0 30px 70px rgba(0, 0, 0, 0.25);
 
     transition:
-        transform 1.2s cubic-bezier(.77,0,.18,1),
+        transform 1.2s cubic-bezier(.77, 0, .18, 1),
         opacity 0.8s ease;
 }
 
 
-/* inner border */
+/* Inner frame */
 
 .invitation-card::before {
 
@@ -169,7 +203,7 @@ body {
 
     position: absolute;
 
-    inset: 16px;
+    inset: 14px;
 
     border: 1px solid var(--lavender);
 
@@ -177,17 +211,17 @@ body {
 }
 
 
-/* =====================================================
-   CARD CONTENT
-   ===================================================== */
+/* =========================================================
+   OPENING CARD CONTENT
+   ========================================================= */
 
 .card-symbol {
 
-    font-size: 22px;
+    font-size: clamp(18px, 5vw, 24px);
 
     color: var(--purple);
 
-    margin-bottom: 25px;
+    margin-bottom: clamp(20px, 5vw, 28px);
 }
 
 
@@ -195,35 +229,35 @@ body {
 
     font-family: Arial, sans-serif;
 
-    font-size: 9px;
+    font-size: clamp(8px, 2.3vw, 10px);
 
-    letter-spacing: 4px;
+    letter-spacing: clamp(2px, 1vw, 4px);
 
     color: var(--purple);
 
-    margin-bottom: 30px;
+    margin-bottom: clamp(24px, 6vw, 32px);
 }
 
 
 .initials {
 
-    font-size: 32px;
+    font-size: clamp(27px, 8vw, 34px);
 
-    letter-spacing: 7px;
+    letter-spacing: clamp(4px, 2vw, 8px);
 
     color: var(--purple);
 
-    margin-bottom: 30px;
+    margin-bottom: clamp(24px, 6vw, 32px);
 }
 
 
 .initials span {
 
-    font-size: 16px;
+    font-size: 15px;
 
     color: #9D86B1;
 
-    margin: 0 5px;
+    margin: 0 4px;
 }
 
 
@@ -235,9 +269,9 @@ body {
 
     gap: 5px;
 
-    font-size: 25px;
+    font-size: clamp(21px, 6vw, 27px);
 
-    letter-spacing: 4px;
+    letter-spacing: clamp(2px, 1.2vw, 5px);
 
     color: var(--deep-purple);
 }
@@ -245,7 +279,7 @@ body {
 
 .opening-names small {
 
-    font-size: 16px;
+    font-size: 14px;
 
     color: var(--purple);
 }
@@ -253,13 +287,15 @@ body {
 
 .card-line {
 
-    width: 70px;
+    width: 60px;
 
     height: 1px;
 
     background: var(--lavender);
 
-    margin: 35px 0;
+    margin:
+        clamp(25px, 7vw, 38px)
+        0;
 }
 
 
@@ -267,25 +303,29 @@ body {
 
     font-family: Arial, sans-serif;
 
-    font-size: 10px;
+    font-size: clamp(8px, 2.4vw, 11px);
 
-    letter-spacing: 3px;
+    letter-spacing: clamp(2px, 1vw, 3px);
 
     color: var(--purple);
 
-    margin-bottom: 40px;
+    margin-bottom: clamp(30px, 7vw, 42px);
 }
 
 
-/* =====================================================
+/* =========================================================
    OPEN BUTTON
-   ===================================================== */
+   ========================================================= */
 
 .open-button {
 
     min-height: 48px;
 
-    padding: 0 25px;
+    min-width: 180px;
+
+    padding:
+        12px
+        20px;
 
     border: 1px solid var(--purple);
 
@@ -305,12 +345,16 @@ body {
 
     align-items: center;
 
-    gap: 18px;
+    justify-content: center;
+
+    gap: 15px;
 
     transition:
         background 0.4s ease,
         color 0.4s ease,
         gap 0.4s ease;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -322,25 +366,31 @@ body {
 }
 
 
-.open-button:hover {
+/* Only apply hover on devices that actually support hover */
 
-    background: var(--purple);
+@media (hover: hover) and (pointer: fine) {
 
-    color: var(--beige);
+    .open-button:hover {
 
-    gap: 25px;
+        background: var(--purple);
+
+        color: var(--beige);
+
+        gap: 22px;
+    }
+
 }
 
 
-/* =====================================================
+/* =========================================================
    TAP HINT
-   ===================================================== */
+   ========================================================= */
 
 .tap-hint {
 
     position: absolute;
 
-    bottom: 28px;
+    bottom: 22px;
 
     color: var(--lavender);
 
@@ -348,7 +398,7 @@ body {
 
     font-size: 8px;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
     z-index: 3;
 
@@ -358,7 +408,8 @@ body {
 
 @keyframes breathe {
 
-    0%,100% {
+    0%,
+    100% {
         opacity: 0.35;
     }
 
@@ -368,15 +419,15 @@ body {
 }
 
 
-/* =====================================================
-   OPENING ANIMATION
-   ===================================================== */
+/* =========================================================
+   OPENING TRANSITION
+   ========================================================= */
 
 .opening.opened .invitation-card {
 
     transform:
-        translateY(-120px)
-        scale(1.08);
+        translateY(-100px)
+        scale(1.06);
 
     opacity: 0;
 }
@@ -396,18 +447,21 @@ body {
 
     100% {
         opacity: 0;
+
         visibility: hidden;
     }
 }
 
 
-/* =====================================================
+/* =========================================================
    MAIN CONTENT
-   ===================================================== */
+   ========================================================= */
 
 .main-content {
 
     display: none;
+
+    width: 100%;
 
     background: var(--beige);
 
@@ -419,53 +473,67 @@ body {
 
     display: block;
 
-    animation: revealMain 1.2s ease forwards;
+    animation:
+        revealMain
+        1.2s
+        ease
+        forwards;
 }
 
 
 @keyframes revealMain {
 
     from {
+
         opacity: 0;
-        transform: translateY(30px);
+
+        transform:
+            translateY(25px);
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
 
 
-/* =====================================================
-   COMMON LABELS
-   ===================================================== */
+/* =========================================================
+   COMMON LABEL
+   ========================================================= */
 
 .section-label {
 
     font-family: Arial, sans-serif;
 
-    font-size: 9px;
+    font-size: 8px;
 
-    letter-spacing: 4px;
+    letter-spacing: clamp(2px, 1vw, 4px);
 
     color: var(--purple);
 
-    margin-bottom: 22px;
+    margin-bottom: 20px;
+
+    line-height: 1.6;
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO
-   ===================================================== */
+   ========================================================= */
 
 .hero {
 
-    min-height: 100vh;
+    width: 100%;
+
+    min-height: 100svh;
 
     padding:
-        90px 25px
-        80px;
+        80px
+        clamp(20px, 6vw, 45px);
 
     display: flex;
 
@@ -487,15 +555,24 @@ body {
 
     color: var(--purple);
 
-    font-size: 22px;
+    font-size: 20px;
 
-    margin-bottom: 35px;
+    margin-bottom: 28px;
 }
 
 
 .hero h1 {
 
-    font-size: clamp(55px, 14vw, 105px);
+    width: 100%;
+
+    max-width: 900px;
+
+    font-size:
+        clamp(
+            52px,
+            14vw,
+            105px
+        );
 
     font-weight: normal;
 
@@ -503,9 +580,14 @@ body {
 
     color: var(--deep-purple);
 
-    letter-spacing: -2px;
+    letter-spacing:
+        clamp(
+            -2px,
+            -0.3vw,
+            -1px
+        );
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 
@@ -513,7 +595,12 @@ body {
 
     display: block;
 
-    font-size: 28px;
+    font-size:
+        clamp(
+            23px,
+            6vw,
+            30px
+        );
 
     color: var(--purple);
 
@@ -523,25 +610,34 @@ body {
 
 .hero-message {
 
-    font-size: 15px;
+    max-width: 420px;
+
+    font-size:
+        clamp(
+            14px,
+            4vw,
+            17px
+        );
 
     line-height: 1.9;
 
-    color: #725F7D;
+    color: var(--text-purple);
 
-    margin-bottom: 50px;
+    margin-bottom: 42px;
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO DATE
-   ===================================================== */
+   ========================================================= */
 
 .hero-date {
 
     display: flex;
 
     align-items: center;
+
+    justify-content: center;
 
     gap: 15px;
 
@@ -551,7 +647,12 @@ body {
 
 .hero-date > span {
 
-    font-size: 55px;
+    font-size:
+        clamp(
+            48px,
+            13vw,
+            65px
+        );
 
     line-height: 1;
 
@@ -567,9 +668,11 @@ body {
 
     font-family: Arial, sans-serif;
 
-    font-size: 11px;
+    font-size: 10px;
 
     letter-spacing: 3px;
+
+    line-height: 1.5;
 }
 
 
@@ -577,26 +680,29 @@ body {
 
     display: block;
 
-    font-size: 9px;
+    font-size: 8px;
 
-    margin-top: 7px;
+    margin-top: 5px;
 
     color: #927CA3;
 }
 
 
-/* =====================================================
+/* =========================================================
    COUNTDOWN
-   ===================================================== */
+   ========================================================= */
 
 .countdown-section {
+
+    width: 100%;
 
     background: var(--purple);
 
     color: var(--beige);
 
     padding:
-        100px 20px;
+        85px
+        clamp(15px, 5vw, 35px);
 
     text-align: center;
 }
@@ -610,15 +716,31 @@ body {
 
 .countdown-section h2 {
 
-    font-size: clamp(30px, 7vw, 48px);
+    max-width: 700px;
+
+    margin:
+        0 auto 45px;
+
+    font-size:
+        clamp(
+            28px,
+            7vw,
+            48px
+        );
+
+    line-height: 1.15;
 
     font-weight: normal;
-
-    margin-bottom: 55px;
 }
 
 
 .countdown {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    margin: auto;
 
     display: flex;
 
@@ -626,15 +748,22 @@ body {
 
     align-items: center;
 
-    gap: clamp(8px, 3vw, 28px);
+    gap:
+        clamp(
+            5px,
+            3vw,
+            25px
+        );
 
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 
 .time-box {
 
-    min-width: 60px;
+    flex: 1;
+
+    min-width: 0;
 
     display: flex;
 
@@ -648,9 +777,16 @@ body {
 
     font-family: Arial, sans-serif;
 
-    font-size: clamp(28px, 7vw, 52px);
+    font-size:
+        clamp(
+            24px,
+            7vw,
+            52px
+        );
 
     font-weight: 300;
+
+    line-height: 1;
 
     letter-spacing: 1px;
 }
@@ -658,13 +794,23 @@ body {
 
 .time-box span {
 
-    margin-top: 10px;
+    margin-top: 9px;
 
     font-family: Arial, sans-serif;
 
-    font-size: 7px;
+    font-size:
+        clamp(
+            6px,
+            1.8vw,
+            8px
+        );
 
-    letter-spacing: 2px;
+    letter-spacing:
+        clamp(
+            1px,
+            0.6vw,
+            2px
+        );
 
     color: var(--lavender);
 }
@@ -674,22 +820,30 @@ body {
 
     color: var(--lavender);
 
-    font-size: 25px;
+    font-size:
+        clamp(
+            16px,
+            4vw,
+            25px
+        );
 
-    padding-bottom: 18px;
+    padding-bottom: 15px;
 }
 
 
-/* =====================================================
+/* =========================================================
    EVENT SECTIONS
-   ===================================================== */
+   ========================================================= */
 
 .event-section {
 
-    min-height: 80vh;
+    width: 100%;
+
+    min-height: 80svh;
 
     padding:
-        110px 25px;
+        90px
+        clamp(20px, 6vw, 45px);
 
     display: flex;
 
@@ -717,25 +871,32 @@ body {
 
     font-family: Arial, sans-serif;
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 3px;
 
     color: #A48BB3;
 
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 
 .event-section h2 {
 
-    font-size: clamp(50px, 12vw, 85px);
+    font-size:
+        clamp(
+            48px,
+            13vw,
+            85px
+        );
 
     font-weight: normal;
 
+    line-height: 1;
+
     color: var(--deep-purple);
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 
@@ -743,21 +904,30 @@ body {
 
     font-family: Arial, sans-serif;
 
-    font-size: 11px;
+    font-size: 10px;
 
     letter-spacing: 3px;
 
+    line-height: 1.5;
+
     color: var(--purple);
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 
 .event-time {
 
-    font-size: 16px;
+    font-size:
+        clamp(
+            15px,
+            4vw,
+            18px
+        );
 
-    color: #725F7D;
+    color: var(--text-purple);
+
+    line-height: 1.5;
 }
 
 
@@ -769,17 +939,21 @@ body {
 
     background: var(--lavender);
 
-    margin: 35px 0;
+    margin: 30px 0;
 }
 
 
 .venue-name {
 
+    max-width: 400px;
+
     font-family: Arial, sans-serif;
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 2px;
+
+    line-height: 1.7;
 
     color: var(--deep-purple);
 }
@@ -789,19 +963,19 @@ body {
 
     font-family: Arial, sans-serif;
 
-    font-size: 9px;
+    font-size: 8px;
 
     letter-spacing: 3px;
 
     color: #9B87A5;
 
-    margin-top: 9px;
+    margin-top: 8px;
 }
 
 
-/* =====================================================
+/* =========================================================
    WEDDING SECTION
-   ===================================================== */
+   ========================================================= */
 
 .wedding-section {
 
@@ -859,15 +1033,19 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================================
    CLOSING
-   ===================================================== */
+   ========================================================= */
 
 .closing {
 
-    min-height: 70vh;
+    width: 100%;
 
-    padding: 90px 25px;
+    min-height: 65svh;
+
+    padding:
+        80px
+        clamp(20px, 6vw, 45px);
 
     display: flex;
 
@@ -887,11 +1065,11 @@ body {
 
 .closing-symbol {
 
-    font-size: 22px;
+    font-size: 20px;
 
     color: var(--lavender);
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 
@@ -899,7 +1077,7 @@ body {
 
     font-family: Arial, sans-serif;
 
-    font-size: 9px;
+    font-size: 8px;
 
     line-height: 2;
 
@@ -907,17 +1085,24 @@ body {
 
     color: var(--lavender);
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 
 .closing h2 {
 
-    font-size: clamp(38px, 9vw, 65px);
+    font-size:
+        clamp(
+            36px,
+            10vw,
+            65px
+        );
 
     font-weight: normal;
 
-    margin-bottom: 30px;
+    line-height: 1;
+
+    margin-bottom: 25px;
 }
 
 
@@ -931,7 +1116,7 @@ body {
 
     font-family: Arial, sans-serif;
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 5px;
 
@@ -939,70 +1124,240 @@ body {
 }
 
 
-/* =====================================================
-   MOBILE
-   ===================================================== */
+/* =========================================================
+   VERY SMALL PHONES
+   320px — 360px
+   ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 360px) {
 
     .opening {
-        padding: 20px;
+
+        padding: 14px;
     }
 
 
     .invitation-card {
 
-        min-height: 560px;
+        min-height: 520px;
 
-        padding: 60px 25px;
+        padding:
+            45px
+            20px;
+    }
+
+
+    .invitation-card::before {
+
+        inset: 11px;
+    }
+
+
+    .opening-names {
+
+        font-size: 20px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .opening-date {
+
+        margin-bottom: 28px;
+    }
+
+
+    .open-button {
+
+        min-width: 165px;
+
+        padding:
+            11px
+            15px;
+
+        font-size: 8px;
     }
 
 
     .hero {
 
-        min-height: 90vh;
-
-        padding: 70px 20px;
+        padding:
+            70px
+            18px;
     }
 
 
     .hero h1 {
 
-        font-size: 62px;
+        font-size: 51px;
+    }
+
+
+    .countdown-section {
+
+        padding:
+            75px
+            10px;
     }
 
 
     .countdown {
 
-        gap: 8px;
-    }
-
-
-    .time-box {
-
-        min-width: 55px;
+        gap: 3px;
     }
 
 
     .time-separator {
 
-        font-size: 18px;
+        font-size: 14px;
+
+        padding-bottom: 13px;
     }
 
 
     .event-section {
 
-        min-height: 75vh;
+        padding:
+            80px
+            18px;
     }
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (min-width: 601px) {
+
+    .opening {
+
+        padding: 35px;
+    }
+
+
+    .invitation-card {
+
+        min-height: 650px;
+    }
+
+
+    .hero {
+
+        padding:
+            100px
+            40px;
+    }
+
+
+    .countdown-section {
+
+        padding:
+            110px
+            35px;
+    }
+
+
+    .event-section {
+
+        padding:
+            120px
+            40px;
+    }
+
+
+    .closing {
+
+        padding:
+            100px
+            40px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1000px) {
+
+    .opening {
+
+        padding: 50px;
+    }
+
+
+    .invitation-card {
+
+        min-height: 680px;
+    }
+
+
+    .hero {
+
+        min-height: 100vh;
+
+        padding:
+            120px
+            50px;
+    }
+
+
+    .countdown-section {
+
+        padding:
+            130px
+            50px;
+    }
+
+
+    .event-section {
+
+        min-height: 85vh;
+
+        padding:
+            140px
+            50px;
+    }
+
+
+    .closing {
+
+        min-height: 70vh;
+
+        padding:
+            120px
+            50px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.open-button:focus-visible {
+
+    outline: 2px solid var(--lavender);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
    REDUCED MOTION
-   ===================================================== */
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior: auto;
+    }
+
 
     *,
     *::before,
@@ -1011,8 +1366,6 @@ body {
         animation-duration: 0.01ms !important;
 
         animation-iteration-count: 1 !important;
-
-        scroll-behavior: auto !important;
 
         transition-duration: 0.01ms !important;
     }
