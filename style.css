@@ -1,6 +1,774 @@
-/* =====================================================
+/* =========================================================
+   SUPRAJA & LOGESH
+   TAMIL IYER WEDDING INVITATION
+   COMPLETE COMBINED CSS
+   ========================================================= */
+
+
+/* =========================================================
+   COLOUR PALETTE
+   ========================================================= */
+
+:root {
+
+    --purple: #5B3A82;
+
+    --deep-purple: #39234F;
+
+    --dark-purple: #2E1B40;
+
+    --beige: #F4EBDD;
+
+    --soft-beige: #FBF7F0;
+
+    --lavender: #C9B6D9;
+
+    --light-lavender: #DED1E7;
+
+    --text-purple: #725F7D;
+
+    --muted-purple: #9B87A5;
+
+    --white: #FFFFFF;
+}
+
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    width: 100%;
+
+    min-height: 100%;
+
+    background: var(--beige);
+
+    color: var(--deep-purple);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+
+}
+
+
+/* =========================================================
+   OPENING SCREEN
+   ========================================================= */
+
+.opening {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    min-height: 100svh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #76529A 0%,
+            var(--purple) 42%,
+            var(--deep-purple) 100%
+        );
+
+    padding: 20px;
+
+    isolation: isolate;
+
+}
+
+
+/* Large decorative circle */
+
+.opening::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: min(150vw, 700px);
+
+    aspect-ratio: 1;
+
+    border:
+        1px solid
+        rgba(201, 182, 217, 0.16);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+/* Smaller decorative circle */
+
+.opening::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: min(105vw, 500px);
+
+    aspect-ratio: 1;
+
+    border:
+        1px solid
+        rgba(201, 182, 217, 0.10);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+/* =========================================================
+   INVITATION PAPER
+   ========================================================= */
+
+.invitation {
+
+    width: min(420px, 92vw);
+
+    min-height: min(650px, 88svh);
+
+    position: relative;
+
+    z-index: 2;
+
+    background: var(--soft-beige);
+
+    color: var(--deep-purple);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding:
+        55px
+        clamp(22px, 6vw, 38px);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.55);
+
+    box-shadow:
+        0 35px 80px
+        rgba(0,0,0,0.30);
+
+    overflow: hidden;
+
+}
+
+
+/* Inner frame */
+
+.invitation::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 15px;
+
+    border:
+        1px solid
+        var(--lavender);
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   TOP SYMBOL
+   ========================================================= */
+
+.ornament {
+
+    color: var(--purple);
+
+    font-size: 23px;
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================================
+   INVITATION LABEL
+   ========================================================= */
+
+.invitation-label {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: var(--purple);
+
+    margin-bottom: 32px;
+
+}
+
+
+/* =========================================================
+   COUPLE NAMES
+   ========================================================= */
+
+.names {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    font-size:
+        clamp(
+            25px,
+            7vw,
+            32px
+        );
+
+    letter-spacing: 4px;
+
+    line-height: 1.15;
+
+}
+
+
+.names small {
+
+    font-size: 15px;
+
+    color: var(--purple);
+
+}
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+.date {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: var(--purple);
+
+    margin-top: 28px;
+
+}
+
+
+/* =========================================================
+   THREAD AREA
+   ========================================================= */
+
+.thread-area {
+
+    width: 100%;
+
+    height: 170px;
+
+    position: relative;
+
+    margin-top: 22px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+/* =========================================================
+   HORIZONTAL THREAD
+   ========================================================= */
+
+.thread.horizontal {
+
+    position: absolute;
+
+    left: -30px;
+
+    right: -30px;
+
+    top: 50%;
+
+    height: 3px;
+
+    background:
+        var(--purple);
+
+    transform:
+        translateY(-50%);
+
+    box-shadow:
+        0 1px 2px
+        rgba(0,0,0,0.15);
+
+}
+
+
+/* =========================================================
+   VERTICAL THREAD
+   ========================================================= */
+
+.thread.vertical {
+
+    position: absolute;
+
+    top: -10px;
+
+    bottom: -10px;
+
+    left: 50%;
+
+    width: 3px;
+
+    background:
+        var(--purple);
+
+    transform:
+        translateX(-50%);
+
+    box-shadow:
+        1px 0 2px
+        rgba(0,0,0,0.15);
+
+}
+
+
+/* =========================================================
+   KNOT
+   ========================================================= */
+
+.knot {
+
+    width: 82px;
+
+    height: 82px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        var(--lavender);
+
+    position: relative;
+
+    z-index: 5;
+
+    cursor: grab;
+
+    touch-action: none;
+
+    box-shadow:
+        0 8px 20px
+        rgba(57,35,79,0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+/* Active dragging */
+
+.knot:active {
+
+    cursor: grabbing;
+
+    box-shadow:
+        0 12px 28px
+        rgba(57,35,79,0.35);
+
+}
+
+
+/* =========================================================
+   KNOT LOOPS
+   ========================================================= */
+
+.knot-loop {
+
+    position: absolute;
+
+    width: 35px;
+
+    height: 24px;
+
+    border:
+        4px solid
+        var(--purple);
+
+    border-radius: 50%;
+
+    left: 7px;
+
+    top: 27px;
+
+    transform:
+        rotate(28deg);
+
+}
+
+
+.knot-loop.second {
+
+    left: auto;
+
+    right: 7px;
+
+    transform:
+        rotate(-28deg);
+
+}
+
+
+/* =========================================================
+   KNOT CENTER
+   ========================================================= */
+
+.knot-center {
+
+    position: absolute;
+
+    width: 22px;
+
+    height: 22px;
+
+    background:
+        var(--purple);
+
+    border-radius: 50%;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+/* =========================================================
+   LOOSE THREAD
+   ========================================================= */
+
+.thread-tail {
+
+    position: absolute;
+
+    width: 100px;
+
+    height: 4px;
+
+    background:
+        var(--purple);
+
+    left:
+        calc(50% + 30px);
+
+    top:
+        calc(50% + 30px);
+
+    transform:
+        rotate(35deg);
+
+    transform-origin:
+        left center;
+
+    z-index: 4;
+
+    border-radius: 10px;
+
+}
+
+
+/* =========================================================
+   INSTRUCTIONS
+   ========================================================= */
+
+.instruction {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: var(--purple);
+
+    margin-top: 5px;
+
+    transition:
+        opacity 0.5s ease;
+
+}
+
+
+.hint {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    color: var(--muted-purple);
+
+    margin-top: 10px;
+
+    letter-spacing: 1px;
+
+    transition:
+        opacity 0.5s ease;
+
+}
+
+
+/* =========================================================
+   REVEAL MESSAGE
+   ========================================================= */
+
+.reveal-message {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        var(--purple);
+
+    color:
+        var(--beige);
+
+    opacity: 0;
+
+    animation:
+        revealMessage
+        1.8s
+        cubic-bezier(.22,1,.36,1)
+        forwards;
+
+    padding: 30px;
+
+}
+
+
+.reveal-symbol {
+
+    font-size: 24px;
+
+    color:
+        var(--lavender);
+
+    margin-bottom: 25px;
+
+    animation:
+        revealSymbol
+        1.5s
+        ease
+        forwards;
+
+}
+
+
+.reveal-message p {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color:
+        var(--lavender);
+
+    margin-bottom: 30px;
+
+}
+
+
+.reveal-message h1 {
+
+    font-size:
+        clamp(
+            48px,
+            13vw,
+            90px
+        );
+
+    font-weight: normal;
+
+    line-height: 0.95;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.reveal-message h1 span {
+
+    display: block;
+
+    font-size: 25px;
+
+    color:
+        var(--lavender);
+
+    margin: 10px 0;
+
+}
+
+
+.reveal-date {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color:
+        var(--lavender);
+
+}
+
+
+/* =========================================================
+   REVEAL ANIMATIONS
+   ========================================================= */
+
+@keyframes revealMessage {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(1.08);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes revealSymbol {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            rotate(-20deg);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(0);
+
+    }
+
+}
+
+
+/* =========================================================
    WEDDING CONTENT
-   ===================================================== */
+   ========================================================= */
 
 .wedding-content {
 
@@ -8,9 +776,11 @@
 
     width: 100%;
 
-    background: var(--beige);
+    background:
+        var(--beige);
 
-    color: var(--deep-purple);
+    color:
+        var(--deep-purple);
 
 }
 
@@ -51,43 +821,9 @@
 }
 
 
-/* =====================================================
-   INTRO
-   ===================================================== */
-
-.intro-section {
-
-    min-height: 100vh;
-
-    min-height: 100svh;
-
-    padding:
-        80px
-        25px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-}
-
-
-.content-symbol {
-
-    color: var(--purple);
-
-    font-size: 23px;
-
-    margin-bottom: 28px;
-
-}
-
+/* =========================================================
+   COMMON CONTENT LABEL
+   ========================================================= */
 
 .content-label {
 
@@ -97,9 +833,52 @@
 
     letter-spacing: 4px;
 
-    color: var(--purple);
+    color:
+        var(--purple);
 
     margin-bottom: 22px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   INTRODUCTION SECTION
+   ========================================================= */
+
+.intro-section {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    min-height: 100svh;
+
+    padding:
+        80px 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+.content-symbol {
+
+    color:
+        var(--purple);
+
+    font-size: 23px;
+
+    margin-bottom: 28px;
 
 }
 
@@ -117,7 +896,8 @@
 
     line-height: 0.95;
 
-    color: var(--deep-purple);
+    color:
+        var(--deep-purple);
 
     margin-bottom: 35px;
 
@@ -130,7 +910,8 @@
 
     font-size: 26px;
 
-    color: var(--purple);
+    color:
+        var(--purple);
 
     margin: 12px 0;
 
@@ -145,12 +926,17 @@
 
     line-height: 1.9;
 
-    color: #725F7D;
+    color:
+        var(--text-purple);
 
     margin-bottom: 45px;
 
 }
 
+
+/* =========================================================
+   MAIN DATE
+   ========================================================= */
 
 .main-date {
 
@@ -160,7 +946,8 @@
 
     gap: 15px;
 
-    color: var(--purple);
+    color:
+        var(--purple);
 
 }
 
@@ -208,25 +995,28 @@
 
     font-size: 9px;
 
-    color: #927CA3;
+    color:
+        var(--muted-purple);
 
 }
 
 
-/* =====================================================
-   COUNTDOWN
-   ===================================================== */
+/* =========================================================
+   COUNTDOWN SECTION
+   ========================================================= */
 
 .countdown-section {
 
+    width: 100%;
+
     padding:
-        90px
-        20px;
+        90px 20px;
 
     background:
         var(--purple);
 
-    color: var(--beige);
+    color:
+        var(--beige);
 
     text-align: center;
 
@@ -235,7 +1025,8 @@
 
 .countdown-section .content-label {
 
-    color: var(--lavender);
+    color:
+        var(--lavender);
 
 }
 
@@ -251,12 +1042,20 @@
 
     font-weight: normal;
 
+    line-height: 1.15;
+
     margin-bottom: 45px;
 
 }
 
 
+/* =========================================================
+   COUNTDOWN NUMBERS
+   ========================================================= */
+
 .countdown {
+
+    width: 100%;
 
     max-width: 650px;
 
@@ -296,6 +1095,8 @@
 
     font-weight: 300;
 
+    line-height: 1;
+
 }
 
 
@@ -309,35 +1110,43 @@
 
     letter-spacing: 2px;
 
-    color: var(--lavender);
+    color:
+        var(--lavender);
 
 }
 
 
-/* =====================================================
-   EVENTS
-   ===================================================== */
+/* =========================================================
+   EVENT SECTIONS
+   ========================================================= */
 
 .event {
+
+    width: 100%;
+
+    min-height: 80vh;
 
     min-height: 80svh;
 
     padding:
-        90px
-        25px;
+        90px 25px;
 
     display: flex;
 
     flex-direction: column;
 
-    align-items: center;
-
     justify-content: center;
+
+    align-items: center;
 
     text-align: center;
 
 }
 
+
+/* =========================================================
+   RECEPTION
+   ========================================================= */
 
 .reception {
 
@@ -346,6 +1155,18 @@
 
 }
 
+
+.reception h2 {
+
+    color:
+        var(--deep-purple);
+
+}
+
+
+/* =========================================================
+   WEDDING
+   ========================================================= */
 
 .wedding {
 
@@ -358,6 +1179,26 @@
 }
 
 
+.wedding .content-label {
+
+    color:
+        var(--lavender);
+
+}
+
+
+.wedding h2 {
+
+    color:
+        var(--beige);
+
+}
+
+
+/* =========================================================
+   EVENT NUMBER
+   ========================================================= */
+
 .event-number {
 
     font-family: Arial, sans-serif;
@@ -366,7 +1207,8 @@
 
     letter-spacing: 3px;
 
-    color: #A48BB3;
+    color:
+        var(--muted-purple);
 
     margin-bottom: 20px;
 
@@ -381,20 +1223,9 @@
 }
 
 
-.event .content-label {
-
-    margin-bottom: 18px;
-
-}
-
-
-.wedding .content-label {
-
-    color:
-        var(--lavender);
-
-}
-
+/* =========================================================
+   EVENT TITLE
+   ========================================================= */
 
 .event h2 {
 
@@ -414,21 +1245,9 @@
 }
 
 
-.reception h2 {
-
-    color:
-        var(--deep-purple);
-
-}
-
-
-.wedding h2 {
-
-    color:
-        var(--beige);
-
-}
-
+/* =========================================================
+   EVENT DATE
+   ========================================================= */
 
 .event-date {
 
@@ -454,12 +1273,16 @@
 }
 
 
+/* =========================================================
+   EVENT TIME
+   ========================================================= */
+
 .event-time {
 
     font-size: 16px;
 
     color:
-        #725F7D;
+        var(--text-purple);
 
 }
 
@@ -471,6 +1294,10 @@
 
 }
 
+
+/* =========================================================
+   EVENT DIVIDER
+   ========================================================= */
 
 .event-line {
 
@@ -487,7 +1314,13 @@
 }
 
 
+/* =========================================================
+   VENUE
+   ========================================================= */
+
 .venue {
+
+    max-width: 400px;
 
     font-family: Arial, sans-serif;
 
@@ -509,7 +1342,7 @@
     letter-spacing: 3px;
 
     color:
-        #9B87A5;
+        var(--muted-purple);
 
     margin-top: 8px;
 
@@ -532,25 +1365,28 @@
 }
 
 
-/* =====================================================
+/* =========================================================
    CLOSING
-   ===================================================== */
+   ========================================================= */
 
 .closing {
+
+    width: 100%;
+
+    min-height: 65vh;
 
     min-height: 65svh;
 
     padding:
-        80px
-        25px;
+        80px 25px;
 
     display: flex;
 
     flex-direction: column;
 
-    align-items: center;
-
     justify-content: center;
+
+    align-items: center;
 
     text-align: center;
 
@@ -619,11 +1455,143 @@
 }
 
 
-/* =====================================================
-   MOBILE
-   ===================================================== */
+/* =========================================================
+   MOBILE — UP TO 600px
+   ========================================================= */
 
 @media (max-width: 600px) {
+
+
+    .opening {
+
+        padding: 14px;
+
+    }
+
+
+    .invitation {
+
+        width: 94vw;
+
+        min-height: 82svh;
+
+        padding:
+            45px
+            22px;
+
+    }
+
+
+    .invitation::before {
+
+        inset: 11px;
+
+    }
+
+
+    .thread-area {
+
+        height: 150px;
+
+        margin-top: 18px;
+
+    }
+
+
+    .knot {
+
+        width: 74px;
+
+        height: 74px;
+
+    }
+
+
+    .knot-loop {
+
+        width: 31px;
+
+        height: 21px;
+
+        border-width: 3px;
+
+        left: 6px;
+
+        top: 25px;
+
+    }
+
+
+    .knot-loop.second {
+
+        left: auto;
+
+        right: 6px;
+
+    }
+
+
+    .knot-center {
+
+        width: 20px;
+
+        height: 20px;
+
+    }
+
+
+    .thread.horizontal {
+
+        height: 2px;
+
+    }
+
+
+    .thread.vertical {
+
+        width: 2px;
+
+    }
+
+
+    .thread-tail {
+
+        height: 3px;
+
+        width: 85px;
+
+    }
+
+
+    .intro-section {
+
+        padding:
+            70px 20px;
+
+    }
+
+
+    .intro-section h1 {
+
+        font-size: 58px;
+
+    }
+
+
+    .intro-text {
+
+        font-size: 14px;
+
+    }
+
+
+    .countdown-section {
+
+        padding:
+            80px 12px;
+
+    }
+
 
     .countdown {
 
@@ -650,16 +1618,158 @@
 
         min-height: 75svh;
 
+        padding:
+            80px 20px;
+
+    }
+
+
+    .closing {
+
+        min-height: 60svh;
+
+        padding:
+            70px 20px;
+
     }
 
 }
 
 
-/* =====================================================
-   SMALL PHONES
-   ===================================================== */
+/* =========================================================
+   VERY SMALL PHONES — 320px / 360px
+   ========================================================= */
 
 @media (max-width: 360px) {
+
+
+    .opening {
+
+        padding: 10px;
+
+    }
+
+
+    .invitation {
+
+        min-height: 78svh;
+
+        padding:
+            35px 18px;
+
+    }
+
+
+    .invitation::before {
+
+        inset: 10px;
+
+    }
+
+
+    .invitation-label {
+
+        font-size: 7px;
+
+        letter-spacing: 3px;
+
+        margin-bottom: 22px;
+
+    }
+
+
+    .names {
+
+        font-size: 22px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .date {
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .thread-area {
+
+        height: 125px;
+
+    }
+
+
+    .knot {
+
+        width: 66px;
+
+        height: 66px;
+
+    }
+
+
+    .knot-loop {
+
+        width: 28px;
+
+        height: 19px;
+
+        left: 5px;
+
+        top: 24px;
+
+    }
+
+
+    .knot-loop.second {
+
+        right: 5px;
+
+    }
+
+
+    .knot-center {
+
+        width: 18px;
+
+        height: 18px;
+
+    }
+
+
+    .instruction {
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .hint {
+
+        font-size: 7px;
+
+    }
+
+
+    .intro-section h1 {
+
+        font-size: 50px;
+
+    }
+
+
+    .main-date strong {
+
+        font-size: 50px;
+
+    }
+
 
     .countdown {
 
@@ -670,14 +1780,180 @@
 
     .count-box strong {
 
-        font-size: 22px;
+        font-size: 21px;
 
     }
 
 
     .count-box span {
 
+        font-size: 5px;
+
         letter-spacing: 1px;
+
+    }
+
+
+    .event {
+
+        padding:
+            70px 18px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLETS — 601px+
+   ========================================================= */
+
+@media (min-width: 601px) {
+
+
+    .invitation {
+
+        min-height: 650px;
+
+    }
+
+
+    .intro-section {
+
+        padding:
+            100px 40px;
+
+    }
+
+
+    .countdown-section {
+
+        padding:
+            110px 35px;
+
+    }
+
+
+    .event {
+
+        padding:
+            120px 40px;
+
+    }
+
+
+    .closing {
+
+        padding:
+            100px 40px;
+
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP — 1000px+
+   ========================================================= */
+
+@media (min-width: 1000px) {
+
+
+    .opening {
+
+        padding: 50px;
+
+    }
+
+
+    .invitation {
+
+        min-height: 680px;
+
+    }
+
+
+    .intro-section {
+
+        min-height: 100vh;
+
+        padding:
+            120px 50px;
+
+    }
+
+
+    .countdown-section {
+
+        padding:
+            130px 50px;
+
+    }
+
+
+    .event {
+
+        min-height: 85vh;
+
+        padding:
+            140px 50px;
+
+    }
+
+
+    .closing {
+
+        min-height: 70vh;
+
+        padding:
+            120px 50px;
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.knot:focus-visible {
+
+    outline:
+        2px solid
+        var(--purple);
+
+    outline-offset: 4px;
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+
+    html {
+
+        scroll-behavior: auto;
+
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
 
     }
 
